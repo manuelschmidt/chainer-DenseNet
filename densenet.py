@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from six import moves
+
 import chainer
 import chainer.functions as F
 import chainer.links as L
-
 import numpy as np
-from six import moves
 
 
 class DenseBlock(chainer.Chain):
+
     def __init__(self, in_ch, growth_rate, n_layer):
         self.n_layer = n_layer
         super(DenseBlock, self).__init__()
@@ -29,6 +30,7 @@ class DenseBlock(chainer.Chain):
 
 
 class Transition(chainer.Chain):
+
     def __init__(self, in_ch):
         super(Transition, self).__init__(
             bn=L.BatchNormalization(in_ch),
@@ -42,6 +44,7 @@ class Transition(chainer.Chain):
 
 
 class DenseNet(chainer.Chain):
+
     def __init__(self, n_layer=12, growth_rate=12,
                  n_class=10, dropout_ratio=0.2, in_ch=16, block=3):
         """DenseNet definition.

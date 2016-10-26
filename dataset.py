@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from six import moves
+
 import chainer
 import numpy as np
 import random
-from six import moves
 
 
 class PreprocessedDataset(chainer.dataset.DatasetMixin):
+
     def __init__(self, pairs, mean, std, random=False):
         self._pairs = pairs
         self._mean = mean
@@ -36,7 +38,7 @@ class PreprocessedDataset(chainer.dataset.DatasetMixin):
             pad_x[:, 4:36, 4:36] = x
             top = random.randint(0, 8)
             left = random.randint(0, 8)
-            x = pad_x[:, top:top+32, left:left+32]
+            x = pad_x[:, top:top + 32, left:left + 32]
 
             # horizontal flip
             if random.randint(0, 1):

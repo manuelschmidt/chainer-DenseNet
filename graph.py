@@ -4,9 +4,10 @@
 import argparse
 import json
 import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
+
+matplotlib.use('Agg')
 
 
 def create_fig(out_dir):

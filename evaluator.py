@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from chainer import reporter as reporter_module
+from chainer import variable
+from chainer.training import extensions
+
 import copy
 import six
-
-from chainer import reporter as reporter_module
-from chainer.training import extensions
-from chainer import variable
 
 
 class Evaluator(extensions.Evaluator):

@@ -1,27 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import chainer
-from chainer.dataset import convert
-from chainer.datasets import cifar
 from chainer import serializers
 from chainer import training
+from chainer.dataset import convert
+from chainer.datasets import cifar
 from chainer.training import extensions
-
-import time
-
-import cmd_options
 from dataset import PreprocessedDataset
 from densenet import DenseNet
 from evaluator import Evaluator
 from graph import create_fig
 from updater import StandardUpdater
 
+import chainer
+import cmd_options
+import time
+
 
 def main(args):
-
     assert((args.depth - args.block - 1) % args.block == 0)
-    n_layer = (args.depth - args.block - 1) / args.block
+    n_layer = int((args.depth - args.block - 1) / args.block)
     if args.dataset == 'cifar10':
         train, test = cifar.get_cifar10()
         n_class = 10

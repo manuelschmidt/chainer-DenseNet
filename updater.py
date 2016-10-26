@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from chainer.dataset import convert
-from chainer.dataset import iterator as iterator_module
 from chainer import optimizer as optimizer_module
 from chainer import training
 from chainer import variable
+from chainer.dataset import iterator as iterator_module
+from chainer.dataset import convert
 
 import six
 
